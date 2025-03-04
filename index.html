@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fillable PDF Viewer</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <style>
         body {
             display: flex;
@@ -56,36 +55,17 @@
             <button onclick="printPDF()">Print PDF</button>
             <button onclick="downloadPDF()">Download PDF</button>
         </div>
-        <canvas id="pdfViewer"></canvas>
+        <iframe id="pdfViewer" src="https://docs.google.com/gview?url=ARTERY-form.pdf&embedded=true" allowfullscreen></iframe>
     </div>
     
     <script>
-        const url = 'ARTERY-form.pdf';
-
-        pdfjsLib.getDocument(url).promise.then(pdf => {
-            pdf.getPage(1).then(page => {
-                const scale = 1.5;
-                const viewport = page.getViewport({ scale });
-                const canvas = document.getElementById('pdfViewer');
-                const context = canvas.getContext('2d');
-                canvas.height = viewport.height;
-                canvas.width = viewport.width;
-                
-                const renderContext = {
-                    canvasContext: context,
-                    viewport: viewport
-                };
-                page.render(renderContext);
-            });
-        });
-
         function printPDF() {
-            window.open(url, '_blank').print();
+            window.open('ARTERY-form.pdf', '_blank').print();
         }
 
         function downloadPDF() {
             const link = document.createElement('a');
-            link.href = url;
+            link.href = 'ARTERY-form.pdf';
             link.download = 'Filled-Form.pdf';
             document.body.appendChild(link);
             link.click();
