@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fillable PDF Viewer</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
     <style>
         body {
             display: flex;
@@ -57,7 +57,7 @@
             <button onclick="printPDF()">Print PDF</button>
             <button onclick="downloadPDF()">Download PDF</button>
         </div>
-        <iframe id="pdfContainer" src="ARTERY-form.pdf" width="100%" height="100%"></iframe>
+        <iframe id="pdfContainer" src="https://mozilla.github.io/pdf.js/web/viewer.html?file=ARTERY-form.pdf" width="100%" height="100%"></iframe>
     </div>
     
     <script>
